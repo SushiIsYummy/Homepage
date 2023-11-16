@@ -13,19 +13,28 @@ html {
 }
 
 header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding-bottom: 50px;
 }
 
 .profile-pic-container {
-  position: relative;
-  padding: 20px;
+  background-image: url(images/profile-pic-cat.jpg);
+  background-position: center;
+  background-size: cover;
+  margin: 20px;
+  width: 300px;
+  width: clamp(250px, 70%, 400px);
+  height: 400px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  float: left;
+  box-shadow: rgba(0, 0, 0, 0.44) 0px 3px 8px;
 }
 
 .profile-pic-container .name {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translate(-50%);
   color: white;
   padding: 5px;
   font-size: 2rem;
@@ -35,7 +44,7 @@ header {
 .profile-pic {
   display: block;
   max-width: 100%;
-  min-height: 500px;
+  height: 500px;
   object-fit: cover;
   object-position: center;
 }
@@ -45,6 +54,8 @@ header {
   flex-direction: column;
   gap: 10px;
   padding: 20px;
+  margin: 20px;
+  box-shadow: rgba(0, 0, 0, 0.44) 0px 3px 8px;
 }
 
 .about-me .title {
@@ -68,10 +79,8 @@ header {
 }
 
 .contact-me {
-  /* background-color: #0891b2;
-  color: white;
-  padding: 20px; */
-  display: contents;
+  background-color: #0891b2;
+  padding: 40px 30px;
 }
 
 .contact-me .description {
@@ -81,10 +90,10 @@ header {
 .contact-me .title-and-contact-info {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 10px;
-  background-color: #0891b2;
   color: white;
-  padding: 40px 20px;
+  flex-grow: 1;
 }
 
 .contact-me .title {
@@ -102,11 +111,16 @@ header {
   font-size: 1.2rem;
 }
 
-.contact-me .cat-pic img {
+.cat-pic-outside img {
+  display: block;
   max-width: 100%;
   min-height: 500px;
   object-fit: cover;
   object-position: center;
+}
+
+.contact-me .cat-pic {
+  display: none;
 }
 
 main h1 {
@@ -154,8 +168,98 @@ main h1 {
   height: 30px;
 }
 
+@media (min-width: 550px) {
+  header,
+  main {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
 @media (min-width: 768px) {
-  /* .profile-pic {
-    width: 100%;
-  } */
+  header {
+    position: relative;
+    display: block;
+  }
+  .profile-pic-container {
+    width: 280px;
+    height: 300px;
+    margin-left: 40px;
+    margin-top: -30px;
+    margin-bottom: 0;
+  }
+  .about-me {
+    display: block;
+    margin-left: 60px;
+    margin-right: 50px;
+    margin-top: 60px;
+  }
+  .about-me .title {
+    padding-bottom: 10px;
+  }
+  .about-me .description {
+    padding-bottom: 10px;
+  }
+  .about-me .triple-logos {
+    text-align: end;
+  }
+  .contact-me {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  .contact-me .title {
+    text-align: start;
+  }
+  .contact-me .triple-logos {
+    text-align: start;
+  }
+  .contact-me .cat-pic {
+    display: block;
+  }
+  .contact-me .cat-pic img {
+    height: 500px;
+    width: 400px;
+    object-fit: cover;
+    object-position: center;
+  }
+  .cat-pic-outside {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  header {
+    padding-bottom: 120px;
+  }
+  .profile-pic-container {
+    width: 400px;
+    height: 400px;
+    margin-top: -70px;
+  }
+  .about-me {
+    margin-top: 100px;
+  }
+  .contact-me {
+    padding: 40px 80px;
+  }
+  .contact-me .title {
+    font-size: 4rem;
+  }
+  .contact-me .description {
+    font-size: 2.2rem;
+  }
+  .contact-me .street,
+  .contact-me .address,
+  .contact-me .phone-number,
+  .contact-me .email {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .contact-me {
+    padding: 40px 120px;
+  }
 }
