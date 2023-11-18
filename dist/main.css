@@ -1,6 +1,3 @@
-/*!******************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles.css ***!
-  \******************************************************************/
 :root {
   font-size: 16px;
 }
@@ -16,21 +13,28 @@ html {
 }
 
 header {
-  /* display: flex;
-  flex-direction: column; */
-  /* gap: 20px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 50px;
 }
 
 .profile-pic-container {
-  position: relative;
-  padding: 20px;
+  background-image: url(2c8056c2ef98745e18f8.jpg);
+  background-position: center;
+  background-size: cover;
+  margin: 20px;
+  width: 300px;
+  width: clamp(250px, 70%, 400px);
+  height: 400px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  float: left;
+  box-shadow: rgba(0, 0, 0, 0.44) 0px 3px 8px;
 }
 
 .profile-pic-container .name {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translate(-50%);
   color: white;
   padding: 5px;
   font-size: 2rem;
@@ -39,11 +43,19 @@ header {
 
 .profile-pic {
   display: block;
-  width: 100%;
+  max-width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .about-me {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   padding: 20px;
+  margin: 20px;
+  box-shadow: rgba(0, 0, 0, 0.44) 0px 3px 8px;
 }
 
 .about-me .title {
@@ -68,8 +80,20 @@ header {
 
 .contact-me {
   background-color: #0891b2;
+  padding: 40px 30px;
+}
+
+.contact-me .description {
+  font-size: 1.8rem;
+}
+
+.contact-me .title-and-contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
   color: white;
-  padding: 20px;
+  flex: 1;
 }
 
 .contact-me .title {
@@ -77,20 +101,171 @@ header {
   text-align: center;
 }
 
-.contact-me p {
-  font-size: 1.4rem;
+.contact-me .contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.cat-pic {
-  background: url(f4c0d3e273106de7d694.jpg);
-  background-position: center;
+.contact-me p {
+  font-size: 1.2rem;
+}
+
+.cat-pic-outside img {
+  display: block;
+  max-width: 100%;
+  min-height: 500px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.contact-me .cat-pic {
+  display: none;
+  flex: 1;
+}
+
+main h1 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  column-gap: 40px;
+  row-gap: 80px;
+  padding: 20px 20px 60px;
+}
+
+.project-card {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.project-card img {
+  background-color: red;
+  width: 100%;
+  height: 250px;
+  display: block;
+}
+
+.project-card .name-and-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+}
+
+.project-card .project-name {
+  font-size: 1.5rem;
+}
+
+.project-card .project-description {
+  padding: 10px 20px 50px;
+}
+
+.project-card .github-logo,
+.project-card .external-link-logo {
+  width: 30px;
+  height: 30px;
+}
+
+@media (min-width: 550px) {
+  header,
+  main {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .project-cards {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 }
 
 @media (min-width: 768px) {
-  /* .profile-pic {
+  header {
+    position: relative;
+    display: block;
+  }
+  .profile-pic-container {
+    width: 280px;
+    height: 300px;
+    margin-left: 40px;
+    margin-top: -30px;
+    margin-bottom: 0;
+  }
+  .about-me {
+    display: block;
+    margin-left: 60px;
+    margin-right: 50px;
+    margin-top: 60px;
+  }
+  .about-me .title {
+    padding-bottom: 10px;
+  }
+  .about-me .description {
+    padding-bottom: 10px;
+  }
+  .about-me .triple-logos {
+    text-align: end;
+  }
+  .contact-me {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  .contact-me .title {
+    text-align: start;
+  }
+  .contact-me .triple-logos {
+    text-align: start;
+  }
+  .contact-me .cat-pic {
+    display: block;
+  }
+  .contact-me .cat-pic img {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    height: 500px;
     width: 100%;
-  } */
+  }
+  .cat-pic-outside {
+    display: none;
+  }
 }
 
+@media (min-width: 1200px) {
+  header {
+    padding-bottom: 120px;
+  }
+  .profile-pic-container {
+    width: 400px;
+    height: 400px;
+    margin-top: -70px;
+  }
+  .about-me {
+    margin-top: 100px;
+  }
+  .contact-me {
+    padding: 40px 80px;
+  }
+  .contact-me .title {
+    font-size: 4rem;
+  }
+  .contact-me .description {
+    font-size: 2.2rem;
+  }
+  .contact-me .street,
+  .contact-me .address,
+  .contact-me .phone-number,
+  .contact-me .email {
+    font-size: 1.5rem;
+  }
+}
 
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5jc3MiLCJtYXBwaW5ncyI6Ijs7O0FBQUE7RUFDRSxlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsU0FBUztFQUNULFVBQVU7RUFDVixzQkFBc0I7QUFDeEI7O0FBRUE7RUFDRSxhQUFhO0FBQ2Y7O0FBRUE7RUFDRTsyQkFDeUI7RUFDekIsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLGtCQUFrQjtFQUNsQixhQUFhO0FBQ2Y7O0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsWUFBWTtFQUNaLFNBQVM7RUFDVCwwQkFBMEI7RUFDMUIsWUFBWTtFQUNaLFlBQVk7RUFDWixlQUFlO0VBQ2YsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsY0FBYztFQUNkLFdBQVc7QUFDYjs7QUFFQTtFQUNFLGFBQWE7QUFDZjs7QUFFQTtFQUNFLGVBQWU7RUFDZixrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7OztFQUdFLFdBQVc7RUFDWCxZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLGFBQWE7QUFDZjs7QUFFQTtFQUNFLGVBQWU7RUFDZixrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxtREFBOEM7RUFDOUMsMkJBQTJCO0FBQzdCOztBQUVBO0VBQ0U7O0tBRUc7QUFDTCIsInNvdXJjZXMiOlsid2VicGFjazovL2hvbWVwYWdlLy4vc3JjL3N0eWxlcy5jc3MiXSwic291cmNlc0NvbnRlbnQiOlsiOnJvb3Qge1xuICBmb250LXNpemU6IDE2cHg7XG59XG5cbioge1xuICBtYXJnaW46IDA7XG4gIHBhZGRpbmc6IDA7XG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG59XG5cbmh0bWwge1xuICBoZWlnaHQ6IDEwMHZoO1xufVxuXG5oZWFkZXIge1xuICAvKiBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uOyAqL1xuICAvKiBnYXA6IDIwcHg7ICovXG59XG5cbi5wcm9maWxlLXBpYy1jb250YWluZXIge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi5wcm9maWxlLXBpYy1jb250YWluZXIgLm5hbWUge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGJvdHRvbTogMjBweDtcbiAgbGVmdDogNTAlO1xuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlKTtcbiAgY29sb3I6IHdoaXRlO1xuICBwYWRkaW5nOiA1cHg7XG4gIGZvbnQtc2l6ZTogMnJlbTtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG59XG5cbi5wcm9maWxlLXBpYyB7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICB3aWR0aDogMTAwJTtcbn1cblxuLmFib3V0LW1lIHtcbiAgcGFkZGluZzogMjBweDtcbn1cblxuLmFib3V0LW1lIC50aXRsZSB7XG4gIGZvbnQtc2l6ZTogM3JlbTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4uYWJvdXQtbWUgLmRlc2NyaXB0aW9uIHtcbiAgZm9udC1zaXplOiAxLjRyZW07XG59XG5cbi5naXRodWItbG9nbyxcbi5saW5rZWRpbi1sb2dvLFxuLnR3aXR0ZXItbG9nbyB7XG4gIHdpZHRoOiA1MHB4O1xuICBoZWlnaHQ6IDUwcHg7XG59XG5cbi50cmlwbGUtbG9nb3Mge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5jb250YWN0LW1lIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzA4OTFiMjtcbiAgY29sb3I6IHdoaXRlO1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4uY29udGFjdC1tZSAudGl0bGUge1xuICBmb250LXNpemU6IDNyZW07XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cblxuLmNvbnRhY3QtbWUgcCB7XG4gIGZvbnQtc2l6ZTogMS40cmVtO1xufVxuXG4uY2F0LXBpYyB7XG4gIGJhY2tncm91bmQ6IHVybCgnLi9pbWFnZXMvY29udGFjdC1tZS1jYXQuanBnJyk7XG4gIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlcjtcbn1cblxuQG1lZGlhIChtaW4td2lkdGg6IDc2OHB4KSB7XG4gIC8qIC5wcm9maWxlLXBpYyB7XG4gICAgd2lkdGg6IDEwMCU7XG4gIH0gKi9cbn1cbiJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==*/
+@media (min-width: 1400px) {
+  .project-cards {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
